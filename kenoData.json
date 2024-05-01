@@ -1,0 +1,36 @@
+{
+  "Tips": [
+    {
+        "Woche": "KW19",
+        "Jahr": 2024,
+        "Zahlen": [6, 10, 12, 17, 42, 50, 52, 55, 68],
+        "Treffer": 0,
+        "Gewinne": 0,
+        "Kosten": "7.60"
+    },
+    {
+        "Woche": "KW18",
+        "Jahr": 2024,
+        "Zahlen": [12, 17, 19, 26, 31, 32, 43, 45, 51],
+        "Treffer": 0,
+        "Gewinne": 0,
+        "Kosten": "7.60"
+      },
+    {
+        "Woche": "KW17",
+        "Jahr": 2024,
+        "Zahlen": [13, 15, 16, 20, 22, 27, 44, 51, 68],
+        "Treffer": 0,
+        "Gewinne": 0,
+        "Kosten": "7.60"
+      },
+      {
+        "Woche": "KW16",
+        "Jahr": 2024,
+        "Zahlen": [13, 23, 25, 36, 39, 52, 63, 65, 70],
+        "Treffer": 0,
+        "Gewinne": 0,
+        "Kosten": "10.60"
+      }
+    ]
+  }
