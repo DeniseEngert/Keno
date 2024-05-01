@@ -5,6 +5,7 @@ with open("kenoData.json") as data:
 
 TIP = DATA["Tips"]
 
+
 def getEntriesPerYear(year):
     sumTips = 0
     sumKosten = 0
@@ -18,7 +19,9 @@ def getEntriesPerYear(year):
             sumTreffer = sumTreffer + x["Treffer"]
             sumGewinne = sumGewinne + float(x["Gewinne"])
 
-    print(f"Jahr: {year}\n Anzahl Tips: {sumTips},\n Anzahl Gewinne: {sumTreffer},\n Kosten: {sumKosten},\n Gewinne: {sumGewinne},\n GuV: {sumGewinne - sumKosten}")
+    print(
+        f"Jahr: {year}\n Anzahl Tips: {sumTips},\n Anzahl Gewinne: {sumTreffer},\n Kosten: {sumKosten},\n Gewinne: {sumGewinne},\n GuV: {sumGewinne - sumKosten}")
+
 
 def getLength():
     return len(TIP)
@@ -36,6 +39,7 @@ def gewinneVerluste():
     guv = getValues("Gewinne") - getValues("Kosten")
     return guv
 
+
 print("##### GESAMT #####")
 print(f"Anzahl Tips:           {getLength()}")
 print(f'Einsatz:               {getValues("Kosten")}')
@@ -47,6 +51,3 @@ print("-----------------------------")
 print()
 print("##### PRO JAHR #####")
 getEntriesPerYear(2024)
-
-
-
