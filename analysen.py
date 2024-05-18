@@ -6,7 +6,8 @@ with open("kenoData.json") as data:
 TIP = DATA["Tips"]
 
 
-def getEntriesPerYear(year):
+def getEntriesPerYear(year) -> None:
+    # sums up values for different key in a certain year
     sumTips = 0
     sumKosten = 0
     sumTreffer = 0
@@ -14,20 +15,21 @@ def getEntriesPerYear(year):
 
     for x in TIP:
         if x["Jahr"] == year:
-            sumTips = sumTips + 1
-            sumKosten = sumKosten + float(x["Kosten"])
-            sumTreffer = sumTreffer + x["Treffer"]
-            sumGewinne = sumGewinne + float(x["Gewinne"])
+            sumTips += 1
+            sumKosten += float(x["Kosten"])
+            sumTreffer += x["Treffer"]
+            sumGewinne += float(x["Gewinne"])
 
     print(
-        f"Jahr: {year}\n Anzahl Tips: {sumTips},\n Anzahl Gewinne: {sumTreffer},\n Kosten: {sumKosten},\n Gewinne: {sumGewinne},\n GuV: {sumGewinne - sumKosten}")
+        f"Jahr: {year}\n Anzahl Tips: {sumTips},\n Anzahl Gewinne: {sumTreffer},\n Kosten: {sumKosten},\n ∑ Gewinne in €: {sumGewinne},\n GuV: {sumGewinne - sumKosten}")
 
 
-def getLength():
+def getLength() -> int:
     return len(TIP)
 
 
-def getValues(key):
+def getValues(key) -> float:
+    # sums up values for different keys
     summe = 0
     for x in TIP:
         i = float(x[key])
@@ -35,19 +37,33 @@ def getValues(key):
     return round(summe, 2)
 
 
-def gewinneVerluste():
+def gewinneVerluste() -> float:
     guv = getValues("Gewinne") - getValues("Kosten")
     return guv
+
+
+def trefferVSmisses() -> str:
+    sum_treffer = 0
+    sum_misses = 0
+
+    for x in TIP:
+        if x["Treffer"] > 0:
+            sum_treffer += x["Treffer"]
+        if x["MISS"] > 0:
+            sum_misses += x["MISS"]
+
+    return f"Treffer: {sum_treffer}, Misses: {sum_misses}"
 
 
 print("##### GESAMT #####")
 print(f"Anzahl Tips:           {getLength()}")
 print(f'Einsatz:               {getValues("Kosten")}')
 print(f'Anzahl Gewinne:        {getValues("Treffer")}')
-print(f'Gewinne:               {getValues("Gewinne")}')
+print(f'∑ Gewinne     :        {getValues("Gewinne")} €')
 print("-----------------------------")
 print(f'GuV:                  {gewinneVerluste()}')
 print("-----------------------------")
+print(trefferVSmisses())
 print()
 print("##### PRO JAHR #####")
 getEntriesPerYear(2024)
