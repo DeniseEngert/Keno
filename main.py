@@ -7,7 +7,7 @@ numbArray = []
 numbTip = []
 numbZiehung = []
 treffer = 0
-versuche = 0
+#versuche = 0
 ziehungen = []
 data = []
 
@@ -77,7 +77,7 @@ def getWinner() -> []:  # identifies tip with fastest win
 
 
 def runTilWin(typ: int) -> None:
-    global versuche
+    #global versuche
     global treffer
     global numbArray
     global numbZiehung
@@ -92,7 +92,7 @@ def runTilWin(typ: int) -> None:
         treffer = 0
 
         start = time.time()
-        while treffer <= (int(typ) - 1):
+        while treffer <= (typ - 1):
             aux = {}
             treffer = 0
             numbArray = []
